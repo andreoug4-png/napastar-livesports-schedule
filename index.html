@@ -992,20 +992,25 @@ button {
 
         grid-template-columns:
             minmax(0, 1fr)
-            22px
-            minmax(0, 1fr);
+            20px
+            minmax(0, 1fr)
+            auto
+            auto;
 
-        column-gap: 5px;
+        column-gap: 7px;
 
-        padding: 9px 78px;
+        padding: 10px 8px;
     }
 
 
     .home-team,
     .away-team {
 
-        font-size:
-            clamp(11px, 3.4vw, 16px);
+        font-size: clamp(11px, 3.2vw, 15px);
+
+        white-space: normal;
+
+        overflow-wrap: anywhere;
     }
 
 
@@ -1017,11 +1022,13 @@ button {
 
     .live-badge {
 
-        right: 45px;
+        position: static;
 
-        min-height: 32px;
+        right: auto;
 
-        padding: 5px 8px;
+        min-height: 30px;
+
+        padding: 5px 7px;
 
         border-radius: 8px;
 
@@ -1031,11 +1038,17 @@ button {
 
     .time {
 
-        right: 2px;
+        position: static;
 
-        width: 40px;
+        right: auto;
+
+        width: auto;
+
+        min-width: 39px;
 
         font-size: 13px;
+
+        text-align: right;
     }
 }
 
@@ -1059,41 +1072,51 @@ button {
 
         grid-template-columns:
             minmax(0, 1fr)
-            18px
-            minmax(0, 1fr);
+            17px
+            minmax(0, 1fr)
+            auto
+            auto;
 
-        column-gap: 3px;
+        column-gap: 4px;
 
-        padding: 9px 67px;
+        padding: 9px 5px;
     }
 
 
     .home-team,
     .away-team {
 
-        font-size: 10.5px;
+        font-size: 10px;
     }
 
 
     .live-badge {
 
-        right: 39px;
+        position: static;
 
-        min-height: 28px;
+        right: auto;
 
-        padding: 4px 6px;
+        min-height: 27px;
 
-        font-size: 9px;
+        padding: 4px 5px;
+
+        font-size: 8.5px;
     }
 
 
     .time {
 
-        right: 1px;
+        position: static;
 
-        width: 36px;
+        right: auto;
 
-        font-size: 11px;
+        width: auto;
+
+        min-width: 34px;
+
+        font-size: 10.5px;
+
+        text-align: right;
     }
 }
 
@@ -1150,7 +1173,7 @@ button {
             class="day-button"
             onclick="showDay('Monday')"
         >
-            Monday
+            Monday 14/9
         </button>
 
 
@@ -1158,7 +1181,7 @@ button {
             class="day-button"
             onclick="showDay('Tuesday')"
         >
-            Tuesday
+            Tuesday 15/9
         </button>
 
 
@@ -1166,7 +1189,7 @@ button {
             class="day-button"
             onclick="showDay('Wednesday')"
         >
-            Wednesday
+            Wednesday 16/9
         </button>
 
 
@@ -1174,7 +1197,7 @@ button {
             class="day-button"
             onclick="showDay('Thursday')"
         >
-            Thursday
+            Thursday 17/9
         </button>
 
 
@@ -1182,7 +1205,7 @@ button {
             class="day-button"
             onclick="showDay('Friday')"
         >
-            Friday
+            Friday 18/9
         </button>
 
 
@@ -1190,7 +1213,7 @@ button {
             class="day-button"
             onclick="showDay('Saturday')"
         >
-            Saturday
+            Saturday 19/9
         </button>
 
 
@@ -1198,7 +1221,7 @@ button {
             class="day-button"
             onclick="showDay('Sunday')"
         >
-            Sunday
+            Sunday 13/9
         </button>
 
 
