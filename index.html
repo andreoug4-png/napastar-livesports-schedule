@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 
 <meta
@@ -12,9 +14,15 @@
 
 <title>Napa Star Inn Sports Schedule</title>
 
+
 <style>
 
+/* =====================================
+   VARIABLES
+   ===================================== */
+
 :root {
+
     --bg-dark: #170901;
     --bg-brown: #2b1205;
     --bg-brown-light: #4a2208;
@@ -118,7 +126,6 @@ button {
 
     backdrop-filter: blur(4px);
 }
-
 
 
 /* =====================================
@@ -313,13 +320,11 @@ button {
 }
 
 
-
 /* =====================================
    DAY PAGE
    ===================================== */
 
 #dayPage {
-
     display: none;
 }
 
@@ -358,7 +363,6 @@ button {
 
 
 .day-header .gold-line {
-
     margin: 12px 0 0;
 }
 
@@ -371,7 +375,6 @@ button {
 
     gap: 14px;
 }
-
 
 
 /* =====================================
@@ -441,11 +444,23 @@ button {
 }
 
 
-
 /* =====================================
-   MATCH ROW
-   TEAMS PERFECTLY CENTRED
+   PERFECTLY CENTRED MATCH ROW
    ===================================== */
+
+/*
+   IMPORTANT:
+
+   LIVE and TIME are now positioned
+   independently.
+
+   Only HOME / VS / AWAY participate
+   in the centering grid.
+
+   This means the VS remains exactly
+   in the middle of the card regardless
+   of screen width or team name length.
+*/
 
 .match-row {
 
@@ -453,31 +468,21 @@ button {
 
     display: grid;
 
-    /*
-       Only the two teams + VS are part
-       of the main centred grid.
-
-       LIVE and TIME are positioned
-       separately on the right.
-    */
-
     grid-template-columns:
         minmax(0, 1fr)
-        34px
+        42px
         minmax(0, 1fr);
 
     align-items: center;
 
-    column-gap: 8px;
-
     width: 100%;
 
-    /*
-       Equal empty space on BOTH sides
-       keeps the match perfectly centred.
-    */
+    column-gap: 10px;
 
-    padding: 10px 115px;
+    min-height: 48px;
+
+    padding:
+        8px 112px;
 }
 
 
@@ -486,7 +491,6 @@ button {
     border-top:
         1px solid rgba(255, 255, 255, 0.10);
 }
-
 
 
 /* =====================================
@@ -499,7 +503,7 @@ button {
     min-width: 0;
 
     font-size:
-        clamp(14px, 3.8vw, 20px);
+        clamp(12px, 2.8vw, 20px);
 
     font-weight: 900;
 
@@ -507,21 +511,30 @@ button {
 
     text-transform: uppercase;
 
+    line-height: 1.1;
+
     text-shadow:
         0 2px 8px rgba(0, 0, 0, 0.48);
 
-    line-height: 1.12;
+    /*
+       Keep team names on one line.
+       JavaScript below automatically
+       reduces the font when necessary.
+    */
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: clip;
 }
 
 
 .home-team {
-
     text-align: right;
 }
 
 
 .away-team {
-
     text-align: left;
 }
 
@@ -535,8 +548,11 @@ button {
     color: var(--gold);
 
     font-weight: 900;
-}
 
+    white-space: nowrap;
+
+    line-height: 1;
+}
 
 
 /* =====================================
@@ -547,7 +563,11 @@ button {
 
     position: absolute;
 
-    right: 62px;
+    right: 52px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
 
     display: inline-flex;
 
@@ -566,7 +586,7 @@ button {
 
     color: #ffffff;
 
-    padding: 7px 13px;
+    padding: 7px 11px;
 
     border-radius: 10px;
 
@@ -584,7 +604,6 @@ button {
 }
 
 
-
 /* =====================================
    TIME
    ===================================== */
@@ -593,13 +612,17 @@ button {
 
     position: absolute;
 
-    right: 5px;
+    right: 0;
 
-    width: 52px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 47px;
 
     text-align: center;
 
-    font-size: 18px;
+    font-size: 17px;
 
     font-weight: 900;
 
@@ -614,7 +637,6 @@ button {
 }
 
 
-
 /* =====================================
    CHAMPIONS LEAGUE
    ===================================== */
@@ -623,7 +645,7 @@ button {
 
     background-image:
         url(
-        "https://i.ibb.co/cdzTt0b/IMG-1824.jpg"
+            "https://i.ibb.co/cdzTt0b/IMG-1824.jpg"
         );
 
     background-size: cover;
@@ -671,7 +693,6 @@ button {
 
 
 .champions-box .match {
-
     background: transparent;
 }
 
@@ -684,7 +705,6 @@ button {
 }
 
 
-
 /* =====================================
    EUROPA LEAGUE
    ===================================== */
@@ -693,7 +713,7 @@ button {
 
     background-image:
         url(
-        "https://i.ibb.co/xKgWXrPb/IMG-1828.png"
+            "https://i.ibb.co/xKgWXrPb/IMG-1828.png"
         );
 
     background-size: cover;
@@ -741,7 +761,6 @@ button {
 
 
 .europa-box .match {
-
     background: transparent;
 }
 
@@ -754,7 +773,6 @@ button {
 }
 
 
-
 /* =====================================
    CONFERENCE LEAGUE
    ===================================== */
@@ -763,7 +781,7 @@ button {
 
     background-image:
         url(
-        "https://i.ibb.co/TB4WX6x8/IMG-1829.jpg"
+            "https://i.ibb.co/TB4WX6x8/IMG-1829.jpg"
         );
 
     background-size: cover;
@@ -811,7 +829,6 @@ button {
 
 
 .conference-box .match {
-
     background: transparent;
 }
 
@@ -822,7 +839,6 @@ button {
     border-top:
         1px solid rgba(255, 255, 255, 0.15);
 }
-
 
 
 /* =====================================
@@ -855,10 +871,8 @@ button {
 
 
 .no-events strong {
-
     color: var(--gold);
 }
-
 
 
 /* =====================================
@@ -921,27 +935,23 @@ button {
 }
 
 
-
 /* =====================================
-   PHONE OPTIMISATION
+   TABLET / PHONE
    ===================================== */
 
 @media (max-width: 640px) {
 
     body {
-
         background-attachment: scroll;
     }
 
 
     .panel {
-
         border-radius: 20px;
     }
 
 
     #daySelection {
-
         padding: 24px 16px;
     }
 
@@ -972,45 +982,66 @@ button {
 
 
     .event {
-
         border-radius: 18px;
     }
 
 
+    /* =================================
+       MOBILE MATCH
+       ================================= */
+
     .match {
 
         padding:
-            10px 7px 12px;
+            8px 5px 10px;
     }
 
 
-    /*
-       CENTRED MOBILE MATCH
-    */
-
     .match-row {
+
+        /*
+           Only the teams + VS determine
+           the centre.
+
+           LIVE and TIME are outside
+           this grid.
+        */
 
         grid-template-columns:
             minmax(0, 1fr)
-            20px
-            minmax(0, 1fr)
-            auto
-            auto;
+            24px
+            minmax(0, 1fr);
 
-        column-gap: 7px;
+        column-gap: 6px;
 
-        padding: 10px 8px;
+        min-height: 44px;
+
+        /*
+           Space on both sides is identical.
+           This keeps VS mathematically centred.
+        */
+        padding:
+            8px 94px;
     }
 
 
     .home-team,
     .away-team {
 
-        font-size: clamp(11px, 3.2vw, 15px);
+        /*
+           The JavaScript automatically
+           reduces this when necessary.
+        */
+        font-size:
+            clamp(9px, 3.2vw, 15px);
 
-        white-space: normal;
+        line-height: 1.05;
 
-        overflow-wrap: anywhere;
+        white-space: nowrap;
+
+        overflow: hidden;
+
+        text-overflow: clip;
     }
 
 
@@ -1022,49 +1053,94 @@ button {
 
     .live-badge {
 
-        position: static;
+        right: 43px;
 
-        right: auto;
+        min-height: 29px;
 
-        min-height: 30px;
-
-        padding: 5px 7px;
+        padding: 5px 6px;
 
         border-radius: 8px;
 
-        font-size: 10px;
+        font-size: 9px;
     }
 
 
     .time {
 
-        position: static;
+        right: 0;
 
-        right: auto;
+        width: 38px;
 
-        width: auto;
-
-        min-width: 39px;
-
-        font-size: 13px;
-
-        text-align: right;
+        font-size: 12px;
     }
 }
 
+
+/* =====================================
+   SMALL PHONES
+   ===================================== */
+
+@media (max-width: 420px) {
+
+    .match-row {
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            21px
+            minmax(0, 1fr);
+
+        column-gap: 5px;
+
+        padding:
+            8px 82px;
+    }
+
+
+    .home-team,
+    .away-team {
+
+        font-size:
+            clamp(8px, 3vw, 13px);
+    }
+
+
+    .vs {
+        font-size: 8px;
+    }
+
+
+    .live-badge {
+
+        right: 37px;
+
+        min-height: 26px;
+
+        padding: 4px 5px;
+
+        font-size: 8px;
+    }
+
+
+    .time {
+
+        width: 34px;
+
+        font-size: 10.5px;
+    }
+}
 
 
 /* =====================================
    VERY SMALL PHONES
    ===================================== */
 
-@media (max-width: 380px) {
+@media (max-width: 360px) {
 
     body {
 
-        padding-left: 8px;
+        padding-left: 7px;
 
-        padding-right: 8px;
+        padding-right: 7px;
     }
 
 
@@ -1072,55 +1148,52 @@ button {
 
         grid-template-columns:
             minmax(0, 1fr)
-            17px
-            minmax(0, 1fr)
-            auto
-            auto;
+            18px
+            minmax(0, 1fr);
 
         column-gap: 4px;
 
-        padding: 9px 5px;
+        padding:
+            7px 73px;
     }
 
 
     .home-team,
     .away-team {
 
-        font-size: 10px;
+        font-size: 8px;
+    }
+
+
+    .vs {
+        font-size: 7px;
     }
 
 
     .live-badge {
 
-        position: static;
+        right: 32px;
 
-        right: auto;
+        min-height: 24px;
 
-        min-height: 27px;
+        padding: 3px 4px;
 
-        padding: 4px 5px;
+        font-size: 7px;
 
-        font-size: 8.5px;
+        border-radius: 7px;
     }
 
 
     .time {
 
-        position: static;
+        width: 30px;
 
-        right: auto;
-
-        width: auto;
-
-        min-width: 34px;
-
-        font-size: 10.5px;
-
-        text-align: right;
+        font-size: 9.5px;
     }
 }
 
 </style>
+
 </head>
 
 
@@ -1147,23 +1220,17 @@ button {
 
 
     <h1 class="schedule-title">
-
         LIVE Sports Schedule
-
     </h1>
 
 
-    <p class="subtitle">
-
-    </p>
+    <p class="subtitle"></p>
 
 
     <div class="gold-line"></div>
 
 
-    <div class="select-title">
-
-    </div>
+    <div class="select-title"></div>
 
 
     <div class="days">
@@ -1230,7 +1297,6 @@ button {
 </div>
 
 
-
 <!-- =====================================
      DAY PAGE
      ===================================== -->
@@ -1247,181 +1313,532 @@ button {
     </div>
 
 
-
     <div id="events">
 
-        <!-- Monday, Saturday and Sunday intentionally have no event elements.
-             The existing no-events function shows the empty-day message. -->
 
-        <!-- TUESDAY 15/9 -->
-        <div class="event tuesday-event">
-            <div class="league">EFL CUP</div>
-            <div class="match">
-                <div class="match-row">
-                    <div class="home-team">LIVERPOOL</div>
-                    <div class="vs">VS</div>
-                    <div class="away-team">TOTTENHAM</div>
-                    <span class="live-badge">LIVE</span>
-                    <span class="time">22:00</span>
-                </div>
-                <div class="match-row">
-                    <div class="home-team">WEST HAM</div>
-                    <div class="vs">VS</div>
-                    <div class="away-team">FULHAM</div>
-                    <span class="live-badge">LIVE</span>
-                    <span class="time">21:45</span>
-                </div>
-            </div>
-        </div>
+        <!-- =================================
+             TUESDAY 15/9
+             ================================= -->
 
         <div class="event tuesday-event">
-            <div class="league">CHAMPIONSHIP</div>
-            <div class="match">
-                <div class="match-row">
-                    <div class="home-team">MIDDLESBROUGH</div>
-                    <div class="vs">VS</div>
-                    <div class="away-team">MILLWALL</div>
-                    <span class="live-badge">LIVE</span>
-                    <span class="time">21:45</span>
-                </div>
+
+            <div class="league">
+                EFL CUP
             </div>
+
+            <div class="match">
+
+
+                <div class="match-row">
+
+                    <div class="home-team">
+                        LIVERPOOL
+                    </div>
+
+                    <div class="vs">
+                        VS
+                    </div>
+
+                    <div class="away-team">
+                        TOTTENHAM
+                    </div>
+
+                    <span class="live-badge">
+                        LIVE
+                    </span>
+
+                    <span class="time">
+                        22:00
+                    </span>
+
+                </div>
+
+
+                <div class="match-row">
+
+                    <div class="home-team">
+                        WEST HAM
+                    </div>
+
+                    <div class="vs">
+                        VS
+                    </div>
+
+                    <div class="away-team">
+                        FULHAM
+                    </div>
+
+                    <span class="live-badge">
+                        LIVE
+                    </span>
+
+                    <span class="time">
+                        21:45
+                    </span>
+
+                </div>
+
+
+            </div>
+
         </div>
+
 
         <div class="event tuesday-event">
-            <div class="league">LA LIGA</div>
-            <div class="match">
-                <div class="match-row">
-                    <div class="home-team">ESPANYOL</div>
-                    <div class="vs">VS</div>
-                    <div class="away-team">REAL MADRID</div>
-                    <span class="live-badge">LIVE</span>
-                    <span class="time">22:30</span>
-                </div>
+
+            <div class="league">
+                CHAMPIONSHIP
             </div>
+
+            <div class="match">
+
+                <div class="match-row">
+
+                    <div class="home-team">
+                        MIDDLESBROUGH
+                    </div>
+
+                    <div class="vs">
+                        VS
+                    </div>
+
+                    <div class="away-team">
+                        MILLWALL
+                    </div>
+
+                    <span class="live-badge">
+                        LIVE
+                    </span>
+
+                    <span class="time">
+                        21:45
+                    </span>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <!-- WEDNESDAY 16/9 -->
+
+        <div class="event tuesday-event">
+
+            <div class="league">
+                LA LIGA
+            </div>
+
+            <div class="match">
+
+                <div class="match-row">
+
+                    <div class="home-team">
+                        ESPANYOL
+                    </div>
+
+                    <div class="vs">
+                        VS
+                    </div>
+
+                    <div class="away-team">
+                        REAL MADRID
+                    </div>
+
+                    <span class="live-badge">
+                        LIVE
+                    </span>
+
+                    <span class="time">
+                        22:30
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================
+             WEDNESDAY 16/9
+             ================================= -->
+
         <div class="event wednesday-event">
-            <div class="league">LA LIGA</div>
-            <div class="match">
-                <div class="match-row">
-                    <div class="home-team">BARCELONA</div>
-                    <div class="vs">VS</div>
-                    <div class="away-team">SANTANDER</div>
-                    <span class="live-badge">LIVE</span>
-                    <span class="time">22:30</span>
-                </div>
+
+            <div class="league">
+                LA LIGA
             </div>
+
+            <div class="match">
+
+                <div class="match-row">
+
+                    <div class="home-team">
+                        BARCELONA
+                    </div>
+
+                    <div class="vs">
+                        VS
+                    </div>
+
+                    <div class="away-team">
+                        SANTANDER
+                    </div>
+
+                    <span class="live-badge">
+                        LIVE
+                    </span>
+
+                    <span class="time">
+                        22:30
+                    </span>
+
+                </div>
+
+            </div>
+
         </div>
+
 
         <div class="event wednesday-event europa-box">
-            <div class="league">UEFA EUROPA LEAGUE</div>
-            <div class="match">
-                <div class="match-row">
-                    <div class="home-team">OMONIA NICOSIA</div>
-                    <div class="vs">VS</div>
-                    <div class="away-team">CELTA</div>
-                    <span class="live-badge">LIVE</span>
-                    <span class="time">19:45</span>
-                </div>
-                <div class="match-row">
-                    <div class="home-team">MILAN</div>
-                    <div class="vs">VS</div>
-                    <div class="away-team">BENFICA</div>
-                    <span class="live-badge">LIVE</span>
-                    <span class="time">22:00</span>
-                </div>
-                <div class="match-row">
-                    <div class="home-team">OLYMPIACOS</div>
-                    <div class="vs">VS</div>
-                    <div class="away-team">JAGIELLONIA</div>
-                    <span class="live-badge">LIVE</span>
-                    <span class="time">22:00</span>
-                </div>
-                <div class="match-row">
-                    <div class="home-team">SUNDERLAND</div>
-                    <div class="vs">VS</div>
-                    <div class="away-team">AZ</div>
-                    <span class="live-badge">LIVE</span>
-                    <span class="time">22:00</span>
-                </div>
+
+            <div class="league">
+                UEFA EUROPA LEAGUE
             </div>
+
+            <div class="match">
+
+
+                <div class="match-row">
+
+                    <div class="home-team">
+                        OMONIA NICOSIA
+                    </div>
+
+                    <div class="vs">
+                        VS
+                    </div>
+
+                    <div class="away-team">
+                        CELTA
+                    </div>
+
+                    <span class="live-badge">
+                        LIVE
+                    </span>
+
+                    <span class="time">
+                        19:45
+                    </span>
+
+                </div>
+
+
+                <div class="match-row">
+
+                    <div class="home-team">
+                        MILAN
+                    </div>
+
+                    <div class="vs">
+                        VS
+                    </div>
+
+                    <div class="away-team">
+                        BENFICA
+                    </div>
+
+                    <span class="live-badge">
+                        LIVE
+                    </span>
+
+                    <span class="time">
+                        22:00
+                    </span>
+
+                </div>
+
+
+                <div class="match-row">
+
+                    <div class="home-team">
+                        OLYMPIACOS
+                    </div>
+
+                    <div class="vs">
+                        VS
+                    </div>
+
+                    <div class="away-team">
+                        JAGIELLONIA
+                    </div>
+
+                    <span class="live-badge">
+                        LIVE
+                    </span>
+
+                    <span class="time">
+                        22:00
+                    </span>
+
+                </div>
+
+
+                <div class="match-row">
+
+                    <div class="home-team">
+                        SUNDERLAND
+                    </div>
+
+                    <div class="vs">
+                        VS
+                    </div>
+
+                    <div class="away-team">
+                        AZ
+                    </div>
+
+                    <span class="live-badge">
+                        LIVE
+                    </span>
+
+                    <span class="time">
+                        22:00
+                    </span>
+
+                </div>
+
+
+            </div>
+
         </div>
 
-        <!-- THURSDAY 17/9 -->
+
+        <!-- =================================
+             THURSDAY 17/9
+             ================================= -->
+
         <div class="event thursday-event europa-box">
-            <div class="league">UEFA EUROPA LEAGUE</div>
-            <div class="match">
-                <div class="match-row">
-                    <div class="home-team">OFI</div>
-                    <div class="vs">VS</div>
-                    <div class="away-team">HOFFENHEIM</div>
-                    <span class="live-badge">LIVE</span>
-                    <span class="time">19:45</span>
-                </div>
-                <div class="match-row">
-                    <div class="home-team">CELTIC</div>
-                    <div class="vs">VS</div>
-                    <div class="away-team">FERENCVAROS</div>
-                    <span class="live-badge">LIVE</span>
-                    <span class="time">22:00</span>
-                </div>
-                <div class="match-row">
-                    <div class="home-team">CRYSTAL PALACE</div>
-                    <div class="vs">VS</div>
-                    <div class="away-team">LECH POZNAN</div>
-                    <span class="live-badge">LIVE</span>
-                    <span class="time">22:00</span>
-                </div>
-                <div class="match-row">
-                    <div class="home-team">JUVENTUS</div>
-                    <div class="vs">VS</div>
-                    <div class="away-team">NEC</div>
-                    <span class="live-badge">LIVE</span>
-                    <span class="time">22:00</span>
-                </div>
-                <div class="match-row">
-                    <div class="home-team">REAL SOCIEDAD</div>
-                    <div class="vs">VS</div>
-                    <div class="away-team">BOURNEMOUTH</div>
-                    <span class="live-badge">LIVE</span>
-                    <span class="time">22:00</span>
-                </div>
+
+            <div class="league">
+                UEFA EUROPA LEAGUE
             </div>
+
+            <div class="match">
+
+
+                <div class="match-row">
+
+                    <div class="home-team">
+                        OFI
+                    </div>
+
+                    <div class="vs">
+                        VS
+                    </div>
+
+                    <div class="away-team">
+                        HOFFENHEIM
+                    </div>
+
+                    <span class="live-badge">
+                        LIVE
+                    </span>
+
+                    <span class="time">
+                        19:45
+                    </span>
+
+                </div>
+
+
+                <div class="match-row">
+
+                    <div class="home-team">
+                        CELTIC
+                    </div>
+
+                    <div class="vs">
+                        VS
+                    </div>
+
+                    <div class="away-team">
+                        FERENCVAROS
+                    </div>
+
+                    <span class="live-badge">
+                        LIVE
+                    </span>
+
+                    <span class="time">
+                        22:00
+                    </span>
+
+                </div>
+
+
+                <div class="match-row">
+
+                    <div class="home-team">
+                        CRYSTAL PALACE
+                    </div>
+
+                    <div class="vs">
+                        VS
+                    </div>
+
+                    <div class="away-team">
+                        LECH POZNAN
+                    </div>
+
+                    <span class="live-badge">
+                        LIVE
+                    </span>
+
+                    <span class="time">
+                        22:00
+                    </span>
+
+                </div>
+
+
+                <div class="match-row">
+
+                    <div class="home-team">
+                        JUVENTUS
+                    </div>
+
+                    <div class="vs">
+                        VS
+                    </div>
+
+                    <div class="away-team">
+                        NEC
+                    </div>
+
+                    <span class="live-badge">
+                        LIVE
+                    </span>
+
+                    <span class="time">
+                        22:00
+                    </span>
+
+                </div>
+
+
+                <div class="match-row">
+
+                    <div class="home-team">
+                        REAL SOCIEDAD
+                    </div>
+
+                    <div class="vs">
+                        VS
+                    </div>
+
+                    <div class="away-team">
+                        BOURNEMOUTH
+                    </div>
+
+                    <span class="live-badge">
+                        LIVE
+                    </span>
+
+                    <span class="time">
+                        22:00
+                    </span>
+
+                </div>
+
+
+            </div>
+
         </div>
 
-        <!-- FRIDAY 18/9 -->
-        <div class="event friday-event">
-            <div class="league">PREMIER LEAGUE</div>
-            <div class="match">
-                <div class="match-row">
-                    <div class="home-team">BRENTFORD</div>
-                    <div class="vs">VS</div>
-                    <div class="away-team">CHELSEA</div>
-                    <span class="live-badge">LIVE</span>
-                    <span class="time">22:00</span>
-                </div>
-            </div>
-        </div>
+
+        <!-- =================================
+             FRIDAY 18/9
+             ================================= -->
 
         <div class="event friday-event">
-            <div class="league">BUNDESLIGA</div>
-            <div class="match">
-                <div class="match-row">
-                    <div class="home-team">BAYERN M.</div>
-                    <div class="vs">VS</div>
-                    <div class="away-team">UNION BERLIN</div>
-                    <span class="live-badge">LIVE</span>
-                    <span class="time">21:30</span>
-                </div>
+
+            <div class="league">
+                PREMIER LEAGUE
             </div>
+
+            <div class="match">
+
+                <div class="match-row">
+
+                    <div class="home-team">
+                        BRENTFORD
+                    </div>
+
+                    <div class="vs">
+                        VS
+                    </div>
+
+                    <div class="away-team">
+                        CHELSEA
+                    </div>
+
+                    <span class="live-badge">
+                        LIVE
+                    </span>
+
+                    <span class="time">
+                        22:00
+                    </span>
+
+                </div>
+
+            </div>
+
         </div>
+
+
+        <div class="event friday-event">
+
+            <div class="league">
+                BUNDESLIGA
+            </div>
+
+            <div class="match">
+
+                <div class="match-row">
+
+                    <div class="home-team">
+                        BAYERN M.
+                    </div>
+
+                    <div class="vs">
+                        VS
+                    </div>
+
+                    <div class="away-team">
+                        UNION BERLIN
+                    </div>
+
+                    <span class="live-badge">
+                        LIVE
+                    </span>
+
+                    <span class="time">
+                        21:30
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
 
     </div>
-            
+
 
     <!-- =====================================
-         NO EVENTS MESSAGE
+         NO EVENTS
          ===================================== -->
 
     <div
@@ -1436,7 +1853,6 @@ button {
         for this day.
 
     </div>
-
 
 
     <!-- =====================================
@@ -1456,20 +1872,32 @@ button {
 </div>
 
 
-
 <script>
 
 
+/* =====================================
+   DAY NAVIGATION
+   ===================================== */
+
 function showDay(day) {
 
+
     const dayDates = {
+
         Monday: "14/9",
+
         Tuesday: "15/9",
+
         Wednesday: "16/9",
+
         Thursday: "17/9",
+
         Friday: "18/9",
+
         Saturday: "19/9",
+
         Sunday: "20/9"
+
     };
 
 
@@ -1486,8 +1914,9 @@ function showDay(day) {
     document
         .getElementById("dayTitle")
         .textContent =
-            day.toUpperCase() + " " + dayDates[day];
-
+            day.toUpperCase() +
+            " " +
+            dayDates[day];
 
 
     const allEvents =
@@ -1497,12 +1926,10 @@ function showDay(day) {
     allEvents.forEach(
         function(event) {
 
-            event.style.display =
-                "none";
+            event.style.display = "none";
 
         }
     );
-
 
 
     const selectedEvents =
@@ -1516,12 +1943,10 @@ function showDay(day) {
     selectedEvents.forEach(
         function(event) {
 
-            event.style.display =
-                "block";
+            event.style.display = "block";
 
         }
     );
-
 
 
     const noEventsMessage =
@@ -1536,6 +1961,14 @@ function showDay(day) {
             : "none";
 
 
+    /*
+       Resize team names after the
+       selected day becomes visible.
+    */
+    requestAnimationFrame(
+        fitTeamNames
+    );
+
 
     window.scrollTo({
 
@@ -1548,6 +1981,9 @@ function showDay(day) {
 }
 
 
+/* =====================================
+   BACK BUTTON
+   ===================================== */
 
 function goBack() {
 
@@ -1581,7 +2017,152 @@ function goBack() {
 }
 
 
+/* =====================================
+   AUTOMATIC TEAM FONT FITTING
+   ===================================== */
+
+/*
+   This is the extra protection for phones.
+
+   Instead of breaking:
+
+       REAL SOCI
+       EDAD
+
+   or:
+
+       OMONIA NICO
+       SIA
+
+   the script checks the available
+   width and gradually reduces the
+   font until the entire team name
+   fits on one line.
+
+   The VS always stays in the exact
+   centre because the team columns
+   remain symmetrical.
+*/
+
+function fitTeamNames() {
+
+
+    const teams =
+        document.querySelectorAll(
+            ".home-team, .away-team"
+        );
+
+
+    teams.forEach(
+        function(team) {
+
+
+            /*
+               Reset to the CSS size first.
+            */
+            team.style.fontSize = "";
+
+
+            /*
+               Do not run fitting on hidden
+               elements because their width
+               would be zero.
+            */
+            if (
+                team.offsetParent === null
+            ) {
+
+                return;
+
+            }
+
+
+            let size =
+                parseFloat(
+                    window.getComputedStyle(
+                        team
+                    ).fontSize
+                );
+
+
+            const minimumSize =
+                window.innerWidth <= 360
+                    ? 7
+                    : window.innerWidth <= 420
+                        ? 7.5
+                        : 8;
+
+
+            /*
+               Reduce font until the complete
+               name fits inside its grid cell.
+            */
+            while (
+
+                team.scrollWidth >
+                team.clientWidth
+
+                &&
+
+                size >
+                minimumSize
+
+            ) {
+
+                size -= 0.25;
+
+                team.style.fontSize =
+                    size + "px";
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================
+   RESIZE SUPPORT
+   ===================================== */
+
+let resizeTimer;
+
+
+window.addEventListener(
+    "resize",
+    function() {
+
+        clearTimeout(
+            resizeTimer
+        );
+
+
+        resizeTimer =
+            setTimeout(
+                fitTeamNames,
+                100
+            );
+
+    }
+);
+
+
+/* =====================================
+   INITIAL LOAD
+   ===================================== */
+
+window.addEventListener(
+    "load",
+    function() {
+
+        fitTeamNames();
+
+    }
+);
+
+
 </script>
 
 </body>
+
 </html>
